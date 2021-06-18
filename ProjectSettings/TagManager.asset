@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ItemBox
+  - Interactable
+  - ShopNPC
   layers:
   - Default
   - TransparentFX
@@ -52,4 +55,7 @@ TagManager:
     locked: 0
   - name: Collectibles
     uniqueID: 2832907591
+    locked: 0
+  - name: NPC
+    uniqueID: 3003500103
     locked: 0

@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Player_Walk_Down
+  serializedVersion: 6
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
+  m_PositionCurves: []
+  m_ScaleCurves: []
+  m_FloatCurves: []
+  m_PPtrCurves:
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: bdec1e38a57733945bdd33e15f87aa76, type: 3}
+    - time: 0.083333336
+      value: {fileID: 21300000, guid: dfd7125fec6b6114c9f730ddb82f41d6, type: 3}
+    - time: 0.16666667
+      value: {fileID: 21300000, guid: 66b4bf250aa4e4745acd9c3c00acf910, type: 3}
+    - time: 0.25
+      value: {fileID: 21300000, guid: 9a447571aaec7f746951911998a043de, type: 3}
+    - time: 0.33333334
+      value: {fileID: 21300000, guid: 69b21fa4dc48a124d9ff60e1c0676872, type: 3}
+    - time: 0.41666666
+      value: {fileID: 21300000, guid: 852f4d9bd14e5b84daf10983c109fdf9, type: 3}
+    attribute: m_Sprite
+    path: 
+    classID: 212
+    script: {fileID: 0}
+  m_SampleRate: 12
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: 21300000, guid: bdec1e38a57733945bdd33e15f87aa76, type: 3}
+    - {fileID: 21300000, guid: dfd7125fec6b6114c9f730ddb82f41d6, type: 3}
+    - {fileID: 21300000, guid: 66b4bf250aa4e4745acd9c3c00acf910, type: 3}
+    - {fileID: 21300000, guid: 9a447571aaec7f746951911998a043de, type: 3}
+    - {fileID: 21300000, guid: 69b21fa4dc48a124d9ff60e1c0676872, type: 3}
+    - {fileID: 21300000, guid: 852f4d9bd14e5b84daf10983c109fdf9, type: 3}
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 0.5
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 1
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves: []
+  m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_Events: []

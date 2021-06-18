@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D rb;
 
+    public Animator animator;
+
     Vector2 move;
 
 
@@ -26,6 +28,10 @@ public class PlayerMovement : MonoBehaviour
         // DETECT INPUT KEYS
         move.x = Input.GetAxisRaw("Horizontal");
         move.y = Input.GetAxisRaw("Vertical");
+
+        animator.SetFloat("Horizontal", move.x);
+        animator.SetFloat("Vertical", move.y);
+        animator.SetFloat("Speed", move.sqrMagnitude);
     }
 
     void FixedUpdate()

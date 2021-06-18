@@ -9,27 +9,30 @@ public class ItemBox : MonoBehaviour
     public Item selectedItem;
     public TextMeshProUGUI priceTag;
     public Image itemImg;
-    
-    public int currentPrice;
-    int defaultPrice;
+    ShopManager shopManager;
 
-   /* private void Awake()
+    public int currentPrice;
+
+    private void Awake()
     {
-        // SAVE THE PRICE IN BOX
-        defaultPrice = currentPrice = selectedItem.costAmount;
-        priceTag.text = currentPrice.ToString();
-        itemImg.sprite = selectedItem.itemImage;
-    }*/
+        if (shopManager == null)
+        {
+            shopManager = FindObjectOfType<ShopManager>();
+        }
+        // FIND THE MANAGER WHEN CREATED
+    }
 
     public void SetPriceText()
     {
-        defaultPrice = currentPrice = selectedItem.costAmount;
+        currentPrice = selectedItem.costAmount;
         priceTag.text = currentPrice.ToString();
         itemImg.sprite = selectedItem.itemImage;
     }
 
     public void OpenItemConfirm()
     {
+        shopManager.selectedItem = selectedItem;
+
      //   ShopManager.shop.itemBoxSelected = this;
      //   ShopManager.shop.purchaseConfirmBox.SetActive(true);
       //  ShopManager.shop.itemImg.sprite = selectedItem.itemImage;
@@ -37,7 +40,8 @@ public class ItemBox : MonoBehaviour
     //    ShopManager.shop.priceTotal.text = "TOTAL = " + currentPrice;
     }
 
-    // PRICE
+    // PRICE MODIFICATIONS
+    /*
     public void Discount(float percentage)
     {
         float discount = currentPrice * (percentage / 100);
@@ -63,5 +67,5 @@ public class ItemBox : MonoBehaviour
     {
         currentPrice = defaultPrice;
         priceTag.text = currentPrice.ToString();
-    }
+    }*/
 }
