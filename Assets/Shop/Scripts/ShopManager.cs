@@ -21,38 +21,90 @@ public class ShopManager : MonoBehaviour
     [Header("Purchase")]
     public GameObject confirmBuyPanel;
     public Item selectedItem;
+    public TextMeshProUGUI totalBought;
+    public TextMeshProUGUI amountToBuy;
+    int buyCounter = 1;
 
     [Header("Selling")]
     public Collectible selectedItemToSell;
     public GameObject confirmSellPanel;
+    public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI totalSold;
     public TextMeshProUGUI amountToSell;
-    int sellCounter = 0;
+    int sellCounter = 1;
+
+    [Header("Speaking")]
+    public GameObject talkingBox;
+    public TextMeshProUGUI shopKeeperTalking;
 
     // BUY PANEL
     public void IncreaseAmountToBuy()
     {
+        buyCounter++;
+        UpdateBuyTexts();
+    }
 
+    // UPDATE TEXTS IN PURCHASE BOX
+    public void UpdateBuyTexts()
+    {
+        amountToBuy.text = buyCounter.ToString();
+        totalBought.text = "TOTAL: " + selectedItem.costAmount * buyCounter;
     }
 
     public void DecreaseAmountToBuy()
     {
-
+        if (buyCounter > 1)
+        {
+            buyCounter--;
+            UpdateBuyTexts();
+        }
     }
 
     // IF YOU DON'T HAVE ENOUGH, SEND ERROR
     public void ConfirmBuy()
     {
-
+        if (CanPurchase())
+        {
+            ResourceManage.resourceManage.MoneyUpdate(-selectedItem.costAmount * buyCounter);
+            attendee.playerInventory.AddToInventory(selectedItem, buyCounter);
+            // ALSO UPDATE PANEL FROM THE TOP
+            HideBuyPanel();
+        }
+        else
+        {
+            shopKeeperTalking.text = "You don't have enough money for that...";
+        }
     }
 
+    public bool CanPurchase()
+    {
+        return ResourceManage.resourceManage.money > (selectedItem.costAmount * buyCounter);
+    }
+
+    public void RevealBuyPanel()
+    {
+        confirmBuyPanel.SetActive(true);
+        totalBought.text = "TOTAL: " + selectedItem.costAmount * buyCounter;
+    }
+
+    public void HideBuyPanel()
+    {
+        confirmBuyPanel.SetActive(false);
+    }
+
+
     // SELL PANEL
-    
+
+    public void UpdateSellTexts()
+    {
+        amountToSell.text = sellCounter.ToString();
+        totalSold.text = "TOTAL: " + selectedItemToSell.sellAmount * sellCounter;
+    }
+
     public void IncreaseAmountToSell()
     {
         sellCounter++;
-        amountToSell.text = sellCounter.ToString();
-        totalSold.text = "TOTAL: " + selectedItemToSell.sellAmount * sellCounter;
+        UpdateSellTexts();
     }
 
     public void DecreaseAmountToSell()
@@ -60,9 +112,9 @@ public class ShopManager : MonoBehaviour
         if (sellCounter > 1)
         {
             sellCounter--;
-            amountToSell.text = sellCounter.ToString();
+            UpdateSellTexts();
         }
-        totalSold.text = "TOTAL: " + selectedItemToSell.sellAmount * sellCounter;
+        
     }
 
     public void ConfirmSell()
@@ -93,6 +145,7 @@ public class ShopManager : MonoBehaviour
     {
         shopView.itemsOnSale = selectedItems;
         shopView.shopPanel.SetActive(true);
+        talkingBox.SetActive(true);
         shopView.UpdateDisplay();
     }
 
@@ -100,6 +153,7 @@ public class ShopManager : MonoBehaviour
     {
         shopView.collectiblesPlayer = selling;
         shopView.shopPanel.SetActive(true);
+        talkingBox.SetActive(true);
         shopView.UpdateSellingView();
     }
   

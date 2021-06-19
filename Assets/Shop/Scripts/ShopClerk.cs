@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShopClerk : MonoBehaviour
 {
     ShopManager shopBrain;
-    PlayerMovement playerTarget;
+    PlayerController playerTarget;
     [HideInInspector]
     public InventoryManager playerInventory;
     bool playerIn;
@@ -47,7 +47,7 @@ public class ShopClerk : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerIn = true;
-            playerTarget = other.GetComponent<PlayerMovement>();
+            playerTarget = other.GetComponent<PlayerController>();
             playerInventory = other.GetComponent<InventoryManager>();
         }
     }

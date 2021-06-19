@@ -69,7 +69,6 @@ public class ShopView : MonoBehaviour
                 Destroy(foundCollectibles[i]);
             }
         }
-        
     }
     
     Vector3 GetPosition(int i)
@@ -81,5 +80,7 @@ public class ShopView : MonoBehaviour
     {
         manager.EnableMainMenuButtons();
         shopPanel.SetActive(false);
+        //
+        manager.talkingBox.SetActive(false);
     }
 }

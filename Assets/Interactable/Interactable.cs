@@ -8,14 +8,14 @@ public class Interactable : MonoBehaviour
     public string dialog;
     public bool playerIn;
     DialogBox targetDialog;
-    PlayerMovement playerTarget;
+    PlayerController playerTarget;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             playerIn = true;
-            playerTarget = other.GetComponent<PlayerMovement>();
+            playerTarget = other.GetComponent<PlayerController>();
         }
     }
 
